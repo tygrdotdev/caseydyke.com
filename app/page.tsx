@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { readItems } from "@directus/sdk";
 import Gallery from "@/components/gallery";
-import { Crown, Medal } from "@/components/icons";
+import { Crown, Email, Instagram, Medal } from "@/components/icons";
 
 function AwardItem({
     href,
@@ -21,7 +21,7 @@ function AwardItem({
         <>
             <Link
                 href={href}
-                className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
             >
                 <p className="gap-2 font-medium flex flex-row">
                     {awardIcon}
@@ -29,7 +29,7 @@ function AwardItem({
                 </p>
                 <span className="w-full flex flex-row items-center">
                     <hr className="hidden sm:flex flex-1 mx-2 border border-black/10 dark:border-white/10" />
-                    <span className="text-sm font-medium text-neutral-500">
+                    <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
                         {body}
                     </span>
                 </span>
@@ -43,7 +43,7 @@ export default async function Home() {
 
     return (
         <main className="flex flex-col gap-12 items-center w-full py-16 px-4">
-            <div className="flex flex-col sm:flex-row text-center sm:text-start gap-12 items-center ">
+            <div className="flex flex-col sm:flex-row text-center sm:text-start gap-12 items-center">
                 <Image
                     src="/pfp.jpg"
                     alt="Profile Picture"
@@ -71,10 +71,16 @@ export default async function Home() {
 
                     <div className="flex flex-row gap-2 items-center justify-center sm:justify-start">
                         <Link href="/instagram">
-                            <Button>Instagram</Button>
+                            <Button>
+                                <Instagram className="w-4 h-4 mr-2" />
+                                Instagram
+                            </Button>
                         </Link>
                         <Link href="mailto:hi@caseydyke.com">
-                            <Button variant="secondary">Email</Button>
+                            <Button variant="secondary">
+                                <Email className="w-4 h-4 mr-2" />
+                                Email
+                            </Button>
                         </Link>
                     </div>
                 </div>
@@ -98,7 +104,7 @@ export default async function Home() {
                     purchased{" "}
                     <a
                         href="https://www.nikon.co.uk/en_GB/product/cameras/d780"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         my first DSLR camera
@@ -107,7 +113,7 @@ export default async function Home() {
                     also take regular trips to{" "}
                     <a
                         href="https://www.facebook.com/sotonreptile"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         Southampton Reptile Centre
@@ -120,7 +126,7 @@ export default async function Home() {
                     animals at major zoos, such as{" "}
                     <a
                         href="https://www.marwell.org.uk/"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         Marwell Wildlife
@@ -128,7 +134,7 @@ export default async function Home() {
                     ,{" "}
                     <a
                         href="https://www.londonzoo.org/"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         ZSL London Zoo
@@ -136,7 +142,7 @@ export default async function Home() {
                     ,{" "}
                     <a
                         href="https://www.exmoorzoo.co.uk/"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         Exmoor Zoo
@@ -145,8 +151,8 @@ export default async function Home() {
                     Wildlife Photography competition and got my picture of their
                     Two Toed Sloth in{" "}
                     <a
-                        href="/awards/marwell-2023"
-                        className="text-accent-700"
+                        href="/marwell-2023"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         their 2023 calendar
@@ -155,7 +161,7 @@ export default async function Home() {
                     competition and was awarded with a{" "}
                     <a
                         href="https://biaza.org.uk/news/detail/biaza-annual-photo-competition-2022-winners-feature-some-of-the-weirdest-lesser-known-zoo-and-aquarium-animals#:~:text=Runner%20up%20%2D%20Earing%20the%20February%20Blooms%2C%20Casey%20Dyke%20(Marwell%20Wildlife)"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         Runner up accolade
@@ -165,7 +171,7 @@ export default async function Home() {
                     competition again with photos of an{" "}
                     <a
                         href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20Marwell%20Wildlife%20%7C%20Marwell%27s%20Emerald"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         emerald tree monitor
@@ -173,7 +179,7 @@ export default async function Home() {
                     from Marwell Wildlife, and a{" "}
                     <a
                         href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20ZSL%20London%20Zoo%20%7C%C2%A0Jelly%20Tranquillity"
-                        className="text-accent-700"
+                        className="text-accent-600/80"
                         target="_blank"
                     >
                         nettle jellyfish
@@ -189,18 +195,19 @@ export default async function Home() {
                             Featured Photos
                         </h2>
                         <p className="text-neutral-500 dark:text-neutral-400 text-sm">
-                            A few of my top and award winning{" "}
+                            A few of my top and{" "}
                             <a
-                                className="text-accent-700"
+                                className="text-accent-600/80"
                                 href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20Marwell%20Wildlife%20%7C%20Marwell%27s%20Emerald"
+                                target="_blank"
                             >
-                                (literally)
+                                award winning
                             </a>{" "}
                             photos.
                         </p>
                     </div>
                     <Link href="/photos">
-                        <Button variant="link" className="justify-end">
+                        <Button variant="ghost" className="justify-end">
                             View All &rarr;
                         </Button>
                     </Link>

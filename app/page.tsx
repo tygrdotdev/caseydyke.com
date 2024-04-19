@@ -6,6 +6,38 @@ import { readItems } from "@directus/sdk";
 import Gallery from "@/components/gallery";
 import { Crown, Medal } from "@/components/icons";
 
+function AwardItem({
+    href,
+    award,
+    awardIcon,
+    body,
+}: {
+    href: string;
+    award: string;
+    awardIcon: JSX.Element;
+    body: string;
+}) {
+    return (
+        <>
+            <Link
+                href={href}
+                className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
+            >
+                <p className="gap-2 font-medium flex flex-row">
+                    {awardIcon}
+                    {award}
+                </p>
+                <span className="w-full flex flex-row items-center">
+                    <hr className="hidden sm:flex flex-1 mx-2 border border-black/10 dark:border-white/10" />
+                    <span className="text-sm font-medium text-neutral-500">
+                        {body}
+                    </span>
+                </span>
+            </Link>
+        </>
+    );
+}
+
 export default async function Home() {
     const result = await cms.request(readItems("photos"));
 
@@ -191,66 +223,31 @@ export default async function Home() {
                         A list of awards I&apos;ve won over the years.
                     </p>
                 </div>
-                <Link
+
+                <AwardItem
                     href="/marwell-2023"
-                    className="flex flex-row items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
-                >
-                    <p className="gap-2 font-medium flex flex-row ">
-                        <Crown width={18} />
-                        Winner
-                    </p>
-                    <span className="hidden w-full sm:flex sm:flex-row sm:items-center ">
-                        <hr className="flex-1 mx-2 border border-black/10 dark:border-white/10" />
-                        <span className="text-sm font-medium text-neutral-500">
-                            Marwell Wildlife Photography Competition 2023
-                        </span>
-                    </span>
-                </Link>
-                <Link
+                    award="Winner"
+                    awardIcon={<Crown width={18} />}
+                    body="Marwell Wildlife Photography Competition 2023"
+                />
+                <AwardItem
                     href="https://biaza.org.uk/news/detail/biaza-annual-photo-competition-2022-winners-feature-some-of-the-weirdest-lesser-known-zoo-and-aquarium-animals#:~:text=Runner%20up%20%2D%20Earing%20the%20February%20Blooms%2C%20Casey%20Dyke%20(Marwell%20Wildlife)"
-                    className="flex flex-row items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
-                >
-                    <p className="gap-2 font-medium flex flex-row ">
-                        <Medal width={18} />
-                        Runner Up
-                    </p>
-                    <span className="hidden w-full sm:flex sm:flex-row sm:items-center ">
-                        <hr className="flex-1 mx-2 border border-black/10 dark:border-white/10" />
-                        <span className="text-sm font-medium text-neutral-500">
-                            BIAZA Photo Competition 2022
-                        </span>
-                    </span>
-                </Link>
-                <Link
+                    award="Runner Up"
+                    awardIcon={<Medal width={18} />}
+                    body="BIAZA Photo Competition 2022"
+                />
+                <AwardItem
                     href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20Marwell%20Wildlife%20%7C%20Marwell%27s%20Emerald"
-                    className="flex flex-row items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
-                >
-                    <p className="gap-2 font-medium flex flex-row">
-                        <Crown width={18} />
-                        Reptile Winner
-                    </p>
-                    <span className="hidden w-full sm:flex sm:flex-row sm:items-center">
-                        <hr className="flex-1 mx-2 border w-full border-black/10 dark:border-white/10" />
-                        <span className="text-sm font-medium text-neutral-500">
-                            BIAZA Photo Competition 2023
-                        </span>
-                    </span>
-                </Link>
-                <Link
+                    award="Reptile Winner"
+                    awardIcon={<Crown width={18} />}
+                    body="BIAZA Photo Competition 2023"
+                />
+                <AwardItem
                     href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20ZSL%20London%20Zoo%20%7C%C2%A0Jelly%20Tranquillity"
-                    className="flex flex-row items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800"
-                >
-                    <p className="gap-2 font-medium flex flex-row ">
-                        <Crown width={18} />
-                        Invertebrate Winner
-                    </p>
-                    <span className="hidden w-full sm:flex sm:flex-row sm:items-center ">
-                        <hr className="flex-1 mx-2 border border-black/10 dark:border-white/10" />
-                        <span className="text-sm font-medium text-neutral-500">
-                            BIAZA Photo Competition 2023
-                        </span>
-                    </span>
-                </Link>
+                    award="Invertebrate Winner"
+                    awardIcon={<Crown width={18} />}
+                    body="BIAZA Photo Competition 2023"
+                />
             </div>
         </main>
     );

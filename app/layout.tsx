@@ -39,10 +39,10 @@ export default function RootLayout({
                         <div className="flex flex-col max-w-[1000px] items-center w-full">
                             <Navbar />
                             {children}
-                            <footer className="py-2">
-                                <p className="text-neutral-500 dark:text-neutral-400">
+                            <footer className="p-2">
+                                <p className="text-neutral-500 text-center dark:text-neutral-400">
                                     © {new Date().getFullYear()} Casey Dyke. All
-                                    rights reserved. Made with ❤️ by{" "}
+                                    rights reserved. <br /> Made with ❤️ by{" "}
                                     <Link
                                         href="https://tygr.dev"
                                         className="text-blue-500"

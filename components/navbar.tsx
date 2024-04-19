@@ -8,7 +8,11 @@ export default function Navbar() {
             <nav className="flex flex-row gap-4 items-center w-full p-3 border-b border-black/10 dark:border-white/10">
                 <div className="flex flex-row justify-start gap-2">
                     {/* TODO: Replace with a logo or avatar */}
-                    <span className="text-2xl font-bold font-serif">CD</span>
+                    <Link href="/">
+                        <span className="text-2xl font-bold font-serif">
+                            CD
+                        </span>
+                    </Link>
                 </div>
                 <div className="flex flex-row justify-center gap-2 w-full">
                     <Link href="/">

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/provider";
 import Navbar from "@/components/navbar";
 import Link from "next/link";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const literata = Literata({ subsets: ["latin"], variable: "--font-serif" });
@@ -29,6 +30,11 @@ export default function RootLayout({
                     "min-h-screen bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white"
                 )}
             >
+                <Script
+                    async
+                    src="https://analytics.caseydyke.com/script.js"
+                    data-website-id="9955e23d-66a7-4f8e-a01d-035cc1252604"
+                />
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"

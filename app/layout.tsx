@@ -45,10 +45,10 @@ export default function RootLayout({
                                     rights reserved. <br /> Made with ❤️ by{" "}
                                     <Link
                                         href="https://tygr.dev"
-                                        className="text-blue-500"
+                                        className="text-accent-600/80"
                                         target="_blank"
                                     >
-                                        tygrdev
+                                        Ty Mason
                                     </Link>
                                 </p>
                             </footer>

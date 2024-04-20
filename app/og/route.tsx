@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
+export const runtime = "";
 
 export async function GET(req: NextRequest) {
     const { searchParams } = req.nextUrl;
@@ -19,11 +19,6 @@ export async function GET(req: NextRequest) {
         new URL("../../public/fonts/inter.ttf", import.meta.url)
     ).then((res) => res.arrayBuffer());
     const interData = await inter;
-
-    const pfp = await fetch(
-        new URL("../../public/pfp.jpg", import.meta.url)
-    ).then((res) => res.arrayBuffer());
-    const pfpData = await pfp;
 
     return new ImageResponse(
         (

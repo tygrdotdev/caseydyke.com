@@ -21,6 +21,9 @@ export default function Navbar() {
                     <Link href="/photos">
                         <Button variant="link">Photos</Button>
                     </Link>
+                    <Link href="/gear">
+                        <Button variant="link">Gear</Button>
+                    </Link>
                 </div>
                 <div className="flex flex-row justify-end gap-2">
                     <ThemeToggle />

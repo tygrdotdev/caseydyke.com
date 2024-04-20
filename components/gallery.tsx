@@ -45,7 +45,7 @@ export default function Gallery({
                                     className="w-full h-full object-cover object-center rounded-lg border border-black/10 dark:border-white/10"
                                 />
                                 <div className="w-full backdrop-blur">
-                                    <div className="absolute opacity-0 transition-opacity group-hover:opacity-100 bottom-0 p-4 border-t-2 rounded-b-lg border-black/10 dark:border-white/10 w-full bg-white/50 dark:bg-black/50">
+                                    <div className="absolute opacity-0 text-white transition-opacity group-hover:opacity-100 bottom-0 p-4 border-t-2 rounded-b-lg border-black/10 dark:border-white/10 w-full bg-black/50">
                                         <div className="flex flex-row gap-2 items-center justify-between">
                                             <p>
                                                 {" "}

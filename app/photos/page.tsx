@@ -10,7 +10,7 @@ export default async function PhotosPage() {
 
     return (
         <>
-            <main className="flex flex-col gap-4 items-center sm:items-start px-2 py-4">
+            <div className="flex flex-col gap-4 items-center sm:items-start px-2 py-4">
                 <div className="flex flex-col gap-0 items-center sm:items-start">
                     <h1 className="text-4xl font-serif font-bold">
                         All Photos
@@ -20,7 +20,7 @@ export default async function PhotosPage() {
                     </p>
                 </div>
                 <Gallery photos={result} />
-            </main>
+            </div>
         </>
     );
 }

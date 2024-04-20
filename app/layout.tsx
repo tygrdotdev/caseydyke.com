@@ -27,7 +27,7 @@ export default function RootLayout({
                 className={cn(
                     inter.variable,
                     literata.variable,
-                    "min-h-screen bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white"
+                    "min-h-screen bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white"
                 )}
             >
                 <Script
@@ -51,7 +51,7 @@ export default function RootLayout({
                                     rights reserved. <br /> Made with ❤️ by{" "}
                                     <Link
                                         href="https://tygr.dev"
-                                        className="text-accent-600/80"
+                                        className="text-accent-800 hover:text-accent-800/80 dark:hover:text-accent-600 transition-colors font-medium dark:text-accent-600/80"
                                         target="_blank"
                                     >
                                         Ty Mason

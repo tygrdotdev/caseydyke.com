@@ -21,7 +21,7 @@ function AwardItem({
         <>
             <Link
                 href={href}
-                className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
+                className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-300 dark:hover:bg-neutral-800 transition-colors"
             >
                 <p className="gap-2 font-medium flex flex-row">
                     {awardIcon}
@@ -38,6 +38,21 @@ function AwardItem({
     );
 }
 
+function AboutMeLink({ href, content }: { href: string; content: string }) {
+    return (
+        <>
+            {" "}
+            <a
+                href={href}
+                className="text-accent-800 hover:text-accent-800/80 dark:hover:text-accent-600 transition-colors font-medium dark:text-accent-600/80 inline-flex flex-row items-center gap-1"
+                target="_blank"
+            >
+                {content}
+            </a>
+        </>
+    );
+}
+
 export default async function Home() {
     const result = await cms.request(readItems("photos"));
 
@@ -50,6 +65,7 @@ export default async function Home() {
                     width={512}
                     height={512}
                     quality={50}
+                    priority
                     className="border border-black/10 dark:border-white/10 rounded-full w-48 h-48"
                 />
                 <div className="flex flex-col gap-6">
@@ -101,95 +117,69 @@ export default async function Home() {
                     discovering animal photographers and their impressive work,
                     I took up the idea of becoming one myself in hopes of
                     sharing my passion with the world. <br /> <br /> In 2021, I
-                    purchased{" "}
-                    <a
+                    purchased
+                    <AboutMeLink
                         href="https://www.nikon.co.uk/en_GB/product/cameras/d780"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        my first DSLR camera
-                    </a>{" "}
+                        content="my first DSLR camera"
+                    />{" "}
                     and used my own animals as subjects to practice on. I&apos;d
-                    also take regular trips to{" "}
-                    <a
+                    also take regular trips to
+                    <AboutMeLink
                         href="https://www.facebook.com/sotonreptile"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        Southampton Reptile Centre
-                    </a>{" "}
+                        content="Southampton Reptile Centre"
+                    />{" "}
                     to photograph their animals as well. Soon enough, they took
                     notice and an agreement was established that they could use
                     my photos for their marketing, and I would recieve service
                     with no charge. <br /> <br /> After building some
                     confidence, I took the deep dive and started photographing
-                    animals at major zoos, such as{" "}
-                    <a
+                    animals at major zoos, such as
+                    <AboutMeLink
                         href="https://www.marwell.org.uk/"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        Marwell Wildlife
-                    </a>
-                    ,{" "}
-                    <a
+                        content="Marwell Wildlife"
+                    />
+                    {""}
+                    ,
+                    <AboutMeLink
                         href="https://www.londonzoo.org/"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        ZSL London Zoo
-                    </a>
+                        content="ZSL London Zoo"
+                    />
                     ,{" "}
-                    <a
+                    <AboutMeLink
                         href="https://www.exmoorzoo.co.uk/"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        Exmoor Zoo
-                    </a>
+                        content="Exmoor Zoo"
+                    />
                     , and more. Just over a year later, I entered the Marwell
                     Wildlife Photography competition and got my picture of their
-                    Two Toed Sloth in{" "}
-                    <a
+                    Two Toed Sloth in
+                    <AboutMeLink
                         href="/marwell-2023"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        their 2023 calendar
-                    </a>
+                        content="their 2023 calendar"
+                    />
                     . A few months later, I entered the 2022 BIAZA Photo
-                    competition and was awarded with a{" "}
-                    <a
+                    competition and was awarded with a
+                    <AboutMeLink
                         href="https://biaza.org.uk/news/detail/biaza-annual-photo-competition-2022-winners-feature-some-of-the-weirdest-lesser-known-zoo-and-aquarium-animals#:~:text=Runner%20up%20%2D%20Earing%20the%20February%20Blooms%2C%20Casey%20Dyke%20(Marwell%20Wildlife)"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        Runner up accolade
-                    </a>{" "}
+                        content="runner up accolade"
+                    />{" "}
                     for my photo of a Swift Parrot. <br /> <br /> Determined to
                     get first place, in 2023, I entered the BIAZA Photo
-                    competition again with photos of an{" "}
-                    <a
+                    competition again with photos of an
+                    <AboutMeLink
                         href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20Marwell%20Wildlife%20%7C%20Marwell%27s%20Emerald"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        emerald tree monitor
-                    </a>{" "}
-                    from Marwell Wildlife, and a{" "}
-                    <a
+                        content="emerald tree monitor"
+                    />{" "}
+                    from Marwell Wildlife, and a
+                    <AboutMeLink
                         href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20ZSL%20London%20Zoo%20%7C%C2%A0Jelly%20Tranquillity"
-                        className="text-accent-600/80"
-                        target="_blank"
-                    >
-                        nettle jellyfish
-                    </a>{" "}
+                        content="nettle jellyfish"
+                    />{" "}
                     from ZSL London Zoo and won both awards!
                 </p>
             </div>
 
             <div className="flex flex-col gap-4 items-start w-full">
-                <div className="flex flex-row gap-2 justify-between items-start w-full">
+                <div className="flex flex-row gap-2 justify-between items-center w-full">
                     <div className="flex flex-col gap-0 items-start justify-between w-full">
                         <h2 className="text-3xl font-bold font-serif">
                             Featured Photos
@@ -197,7 +187,7 @@ export default async function Home() {
                         <p className="text-neutral-500 dark:text-neutral-400 text-sm">
                             A few of my top and{" "}
                             <a
-                                className="text-accent-600/80"
+                                className="text-accent-800 hover:text-accent-800/80 dark:hover:text-accent-600 transition-colors dark:text-accent-600/80"
                                 href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20Marwell%20Wildlife%20%7C%20Marwell%27s%20Emerald"
                                 target="_blank"
                             >

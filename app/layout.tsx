@@ -1,19 +1,51 @@
 import type { Metadata } from "next";
 import { Inter, Literata } from "next/font/google";
 
-import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/provider";
 import Navbar from "@/components/navbar";
 import Link from "next/link";
 import Script from "next/script";
 
+import "./globals.css";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const literata = Literata({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
-    title: "Casey Dyke Photography",
-    description: "A hobbyist photographer, interested in animals and wildlife.",
+    metadataBase: new URL("https://caseydyke.com"),
+    title: {
+        default: "Casey Dyke",
+        template: "%s | Casey Dyke",
+    },
+    description: "A hobbyist photographer interested in animals and wildlife.",
+    openGraph: {
+        title: "Casey Dyke",
+        description:
+            "A hobbyist photographer interested in animals and wildlife.",
+        url: "https://caseydyke.com",
+        siteName: "Casey Dyke",
+        locale: "en_GB",
+        type: "website",
+        images: [
+            {
+                url: `https://caseydyke.com/og`,
+            },
+        ],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+        },
+    },
+    twitter: {
+        title: "Casey Dyke",
+        card: "summary_large_image",
+    },
 };
 
 export const revalidate = 300;
@@ -29,7 +61,7 @@ export default function RootLayout({
                 className={cn(
                     inter.variable,
                     literata.variable,
-                    "min-h-screen bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white"
+                    "min-h-screen antialiased bg-neutral-200 dark:bg-neutral-900 text-black dark:text-white"
                 )}
             >
                 <Script

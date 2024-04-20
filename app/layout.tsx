@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description: "A hobbyist photographer, interested in animals and wildlife.",
 };
 
+export const revalidate = 300;
+
 export default function RootLayout({
     children,
 }: Readonly<{

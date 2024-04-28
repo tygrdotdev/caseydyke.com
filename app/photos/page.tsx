@@ -1,8 +1,5 @@
 import { Photo, cms } from "@/lib/directus";
 import { readItems } from "@directus/sdk";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Gallery from "../../components/gallery";
 
 export default async function PhotosPage() {

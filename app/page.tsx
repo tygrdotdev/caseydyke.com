@@ -24,7 +24,9 @@ function AwardItem({
                 className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-300 dark:hover:bg-neutral-800 transition-colors"
             >
                 <p className="gap-2 font-medium flex flex-row">
-                    {awardIcon}
+                    <span className="text-neutral-500 dark:text-neutral-400">
+                        {awardIcon}
+                    </span>
                     {award}
                 </p>
                 <span className="w-full flex flex-row items-center">

@@ -60,7 +60,7 @@ export default async function Home() {
         <main className="flex flex-col gap-12 items-center w-full py-16 px-4">
             <div className="flex flex-col sm:flex-row text-center sm:text-start gap-12 items-center">
                 <Image
-                    src="/pfp.jpg"
+                    src="/pfp.webp"
                     alt="Profile Picture"
                     width={512}
                     height={512}

@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { cms } from "@/lib/directus";
+import { Photo, Schema, cms } from "@/lib/directus";
 import Image from "next/image";
 import Link from "next/link";
-import { readItems } from "@directus/sdk";
-import Gallery from "@/components/gallery";
+import { QueryFields, readItems } from "@directus/sdk";
+import Gallery from "@/app/photos/grid";
 import { Crown, Email, Instagram, Medal } from "@/components/icons";
 
 function AwardItem({
@@ -56,7 +56,11 @@ function AboutMeLink({ href, content }: { href: string; content: string }) {
 }
 
 export default async function Home() {
-    const result = await cms.request(readItems("photos"));
+    const result = await cms.request(
+        readItems("photos", {
+            fields: ["*.*.*"] as unknown as QueryFields<Schema, Photo>,
+        })
+    );
 
     return (
         <main className="flex flex-col gap-12 items-center w-full py-16 px-4">
@@ -208,7 +212,6 @@ export default async function Home() {
                 <div className="w-full">
                     <Gallery
                         photos={result.filter((x) => x.featured === true)}
-                        breakPoints={{ 350: 1, 750: 2, 900: 3 }}
                     />
                 </div>
             </div>

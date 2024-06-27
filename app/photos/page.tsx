@@ -1,9 +1,13 @@
-import { Photo, cms } from "@/lib/directus";
-import { readItems } from "@directus/sdk";
-import Gallery from "../../components/gallery";
+import { Photo, Schema, cms } from "@/lib/directus";
+import { QueryFields, readItems } from "@directus/sdk";
+import ImageGrid from "./grid";
 
 export default async function PhotosPage() {
-    const result = await cms.request(readItems("photos"));
+    const photos = await cms.request(
+        readItems("photos", {
+            fields: ["*.*.*"] as unknown as QueryFields<Schema, Photo>,
+        })
+    );
 
     return (
         <>
@@ -16,7 +20,7 @@ export default async function PhotosPage() {
                         A complete collection of all my hand-picked photos.
                     </p>
                 </div>
-                <Gallery photos={result} />
+                <ImageGrid photos={photos} />
             </div>
         </>
     );

@@ -1,28 +1,16 @@
 "use client";
 
-import { Photo } from "@/lib/directus";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Image from "next/image";
-import { MapPin } from "./icons";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { Photo_Collection, SharedPhoto } from "@/lib/directus";
+import { MapPin } from "@/components/icons";
 
-export default function Gallery({
-    photos,
-    breakPoints,
-}: {
-    photos: Photo[];
-    breakPoints?:
-        | {
-              [key: number]: number;
-          }
-        | undefined;
-}) {
+export default function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
     return (
         <>
             <ResponsiveMasonry
                 className="w-full"
-                columnsCountBreakPoints={
-                    breakPoints ?? { 350: 1, 750: 2, 900: 3 }
-                }
+                columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
             >
                 <Masonry gutter="1rem">
                     {photos.map((img) => {
@@ -35,9 +23,9 @@ export default function Gallery({
                                     src={
                                         process.env.NEXT_PUBLIC_CMS_URL +
                                         "/assets/" +
-                                        img.image
+                                        img.image.id
                                     }
-                                    alt={img.collection}
+                                    alt={img.id}
                                     loading="lazy"
                                     width={1080}
                                     height={1080}
@@ -49,7 +37,12 @@ export default function Gallery({
                                         <div className="flex flex-row gap-2 items-center justify-between">
                                             <p>
                                                 {" "}
-                                                <b>{img.collection}</b>
+                                                <b>
+                                                    {
+                                                        img.collections[0]
+                                                            .collections_id.name
+                                                    }
+                                                </b>
                                             </p>
                                             <MapPin className="w-6 h-6 font-bold" />
                                         </div>

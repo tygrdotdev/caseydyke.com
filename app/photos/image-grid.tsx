@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { Photo_Collection, SharedPhoto } from "@/lib/directus";
+import { SharedPhoto } from "@/lib/directus";
 import { MapPin } from "@/components/icons";
 
-export default function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
+function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
     return (
         <>
             <ResponsiveMasonry
@@ -56,3 +56,5 @@ export default function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
         </>
     );
 }
+
+export default ImageGrid;

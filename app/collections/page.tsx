@@ -1,6 +1,8 @@
+"use client";
+
 import { Collection, Schema, cms } from "@/lib/directus";
 import { QueryFields, readItems } from "@directus/sdk";
-import PhotoGrid from "./grid";
+import ImageGrid from "./image-grid";
 
 export default async function CollectionPage() {
     const collections = await cms.request(
@@ -24,7 +26,7 @@ export default async function CollectionPage() {
                 {collections.map((collection) => {
                     return (
                         <>
-                            <PhotoGrid
+                            <ImageGrid
                                 collection={collection}
                                 key={collection.id}
                             />

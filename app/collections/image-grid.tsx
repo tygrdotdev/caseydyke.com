@@ -3,13 +3,8 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Image from "next/image";
 import { SharedCollection } from "@/lib/directus";
-import { MapPin } from "@/components/icons";
 
-export default function PhotoGrid({
-    collection,
-}: {
-    collection: SharedCollection;
-}) {
+function ImageGrid({ collection }: { collection: SharedCollection }) {
     return (
         <>
             <div
@@ -54,3 +49,5 @@ export default function PhotoGrid({
         </>
     );
 }
+
+export default ImageGrid;

@@ -1,5 +1,3 @@
-export const revalidate = 300;
-
 export default function CollectionsLayout({
     children,
 }: Readonly<{

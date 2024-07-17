@@ -1,10 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Photo, Schema, cms } from "@/lib/directus";
 import Image from "next/image";
 import Link from "next/link";
 import { QueryFields, readItems } from "@directus/sdk";
-import Gallery from "@/app/photos/grid";
 import { Crown, Email, Instagram, Medal } from "@/components/icons";
+import ImageGrid from "./photos/image-grid";
 
 function AwardItem({
     href,
@@ -211,7 +213,7 @@ export default async function Home() {
                 </div>
 
                 <div className="w-full">
-                    <Gallery
+                    <ImageGrid
                         photos={result.filter((x) => x.featured === true)}
                     />
                 </div>

@@ -14,30 +14,6 @@ const nextConfig = {
                 destination: "https://www.instagram.com/casey.at.zoos/",
                 permanent: true,
             },
-            {
-                source: "/marwell-2023",
-                destination:
-                    "https://www.facebook.com/photo.php?fbid=656726889834219&set=pb.100064907403337.-2207520000&type=3",
-                permanent: true,
-            },
-            {
-                source: "/biaza-2022",
-                destination:
-                    "https://biaza.org.uk/news/detail/biaza-annual-photo-competition-2022-winners-feature-some-of-the-weirdest-lesser-known-zoo-and-aquarium-animals",
-                permanent: true,
-            },
-            {
-                source: "/biaza-2023-reptile",
-                destination:
-                    "https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos",
-                permanent: true,
-            },
-            {
-                source: "/biaza-2023-invertebrate",
-                destination:
-                    "https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos",
-                permanent: true,
-            },
         ];
     },
     headers() {

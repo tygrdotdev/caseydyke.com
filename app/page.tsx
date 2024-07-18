@@ -1,10 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Photo, Schema, cms } from "@/lib/directus";
 import Image from "next/image";
 import Link from "next/link";
 import { QueryFields, readItems } from "@directus/sdk";
-import Gallery from "@/app/photos/grid";
 import { Crown, Email, Instagram, Medal } from "@/components/icons";
+import ImageGrid from "./photos/image-grid";
 
 function AwardItem({
     href,
@@ -22,6 +24,7 @@ function AwardItem({
             <Link
                 href={href}
                 className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-300 dark:hover:bg-neutral-800 transition-colors"
+                target="_blank"
             >
                 <p className="gap-2 font-medium flex flex-row">
                     <span className="text-neutral-500 dark:text-neutral-400">
@@ -210,7 +213,7 @@ export default async function Home() {
                 </div>
 
                 <div className="w-full">
-                    <Gallery
+                    <ImageGrid
                         photos={result.filter((x) => x.featured === true)}
                     />
                 </div>

@@ -22,6 +22,7 @@ function AwardItem({
             <Link
                 href={href}
                 className="flex flex-col sm:flex-row items-start gap-1 sm:gap-0 sm:items-center w-full p-2 overflow-hidden rounded-md whitespace-nowrap text-ellipsis hover:bg-neutral-300 dark:hover:bg-neutral-800 transition-colors"
+                target="_blank"
             >
                 <p className="gap-2 font-medium flex flex-row">
                     <span className="text-neutral-500 dark:text-neutral-400">
@@ -227,16 +228,16 @@ export default async function Home() {
                 </div>
 
                 <AwardItem
-                    href="/marwell-2023"
-                    award="Winner"
-                    awardIcon={<Crown width={18} />}
-                    body="Marwell Wildlife Photography Competition 2023"
-                />
-                <AwardItem
                     href="https://biaza.org.uk/news/detail/biaza-annual-photo-competition-2022-winners-feature-some-of-the-weirdest-lesser-known-zoo-and-aquarium-animals#:~:text=Runner%20up%20%2D%20Earing%20the%20February%20Blooms%2C%20Casey%20Dyke%20(Marwell%20Wildlife)"
                     award="Runner Up"
                     awardIcon={<Medal width={18} />}
                     body="BIAZA Photo Competition 2022"
+                />
+                <AwardItem
+                    href="https://www.facebook.com/photo.php?fbid=656726889834219"
+                    award="Runner Up"
+                    awardIcon={<Medal width={18} />}
+                    body="Marwell Wildlife Photography Competition 2023"
                 />
                 <AwardItem
                     href="https://biaza.org.uk/news/detail/biaza-photo-competition-2023-the-stunning-winning-photos#:~:text=WINNER%20%2D%20Casey%20Dyke%20%7C%20Marwell%20Wildlife%20%7C%20Marwell%27s%20Emerald"
@@ -249,6 +250,12 @@ export default async function Home() {
                     award="Invertebrate Winner"
                     awardIcon={<Crown width={18} />}
                     body="BIAZA Photo Competition 2023"
+                />
+                <AwardItem
+                    href="https://www.facebook.com/photo?fbid=871300811710158"
+                    award="Winner"
+                    awardIcon={<Crown width={18} />}
+                    body="Marwell Wildlife Photography Competition 2024"
                 />
             </div>
         </main>

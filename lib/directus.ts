@@ -41,5 +41,5 @@ export interface Photo_Collection {
 }
 
 export const cms = createDirectus<Schema>(process.env.NEXT_PUBLIC_CMS_URL as string).with(rest({
-	onRequest: (options) => ({ ...options, cache: "no-store" })
+	onRequest: (options) => ({ ...options, cache: "default" })
 }));

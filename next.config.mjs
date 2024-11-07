@@ -1,34 +1,35 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                hostname: "cms.caseydyke.com",
-            },
-        ],
-    },
-    async redirects() {
-        return [
-            {
-                source: "/instagram",
-                destination: "https://www.instagram.com/casey.at.zoos/",
-                permanent: true,
-            },
-        ];
-    },
-    headers() {
-        return [
-            {
-                source: "/(.*)",
-                headers: securityHeaders,
-            },
-        ];
-    },
+	output: "standalone",
+	images: {
+		remotePatterns: [
+			{
+				hostname: "cms.caseydyke.com",
+			},
+		],
+	},
+	async redirects() {
+		return [
+			{
+				source: "/instagram",
+				destination: "https://www.instagram.com/casey.at.zoos/",
+				permanent: true,
+			},
+		];
+	},
+	headers() {
+		return [
+			{
+				source: "/(.*)",
+				headers: securityHeaders,
+			},
+		];
+	},
 };
 
 const ContentSecurityPolicy = `
-    default-src 'self' vercel.live analytics.caseydyke.com;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' vercel.live analytics.caseydyke.com;
+    default-src 'self' analytics.caseydyke.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' analytics.caseydyke.com;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
     media-src 'none';

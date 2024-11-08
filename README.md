@@ -5,7 +5,7 @@ The official website for Casey Dyke, an award-winning zoo photographer based in 
 
 # Tech stack
 - Framework: [NextJS](https://nextjs.org/)
-- Deployment: [Vercel](https://vercel.com/home)
+- Deployment: [Coolify](https://coolify.io)
 - UI: [shadcn/ui](https://ui.shadcn.com/)
 - Styling: [TailwindCSS](https://tailwindcss.com/)
 - CMS: [Directus](https://directus.io/)

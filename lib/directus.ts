@@ -1,44 +1,52 @@
 import { createDirectus, rest } from "@directus/sdk"
 
-export interface Schema {
-	photos: SharedPhoto[];
-	collections: SharedCollection[];
-}
-
-interface Image {
+export type DirectusFiles = {
+	charset?: string | null;
+	created_on: string;
+	description?: string | null;
+	duration?: number | null;
+	embed?: string | null;
+	filename_disk?: string | null;
+	filename_download: string;
+	filesize?: number | null;
+	focal_point_x?: number | null;
+	focal_point_y?: number | null;
+	folder?: string | DirectusFolders | null;
+	height?: number | null;
 	id: string;
-	type: string;
-	uploaded_on: string;
-	width: number;
-	height: number;
-}
+	location?: string | null;
+	metadata?: unknown | null;
+	modified_on: string;
+	storage: string;
+	tags?: unknown | null;
+	title?: string | null;
+	tus_data?: unknown | null;
+	tus_id?: string | null;
+	type?: string | null;
+	uploaded_on?: string | null;
+	width?: number | null;
+};
 
-export interface Photo {
+export type DirectusFolders = {
 	id: string;
-	date_created: string;
-	taxanomic_group: "mammals" | "birds" | "reptiles" | "amphibians" | "invertebrates" | string;
-	featured: boolean;
-	image: Image;
-}
+	name: string;
+	parent?: string | DirectusFolders | null;
+};
 
-export interface SharedPhoto extends Photo {
-	collections: Photo_Collection[]
-}
+export type Photos = {
+	date_created?: string | null;
+	featured?: boolean | null;
+	id: number;
+	image?: DirectusFiles;
+	location?: string | null;
+	taxanomic_group?: string | null;
+};
 
-export interface Collection {
-	id: string,
-	name: string,
-}
-
-export interface SharedCollection extends Collection {
-	images: Photo_Collection[]
-}
-
-export interface Photo_Collection {
-	id: number,
-	collections_id: Collection,
-	photos_id: Photo;
-}
+export type Schema = {
+	directus_files: DirectusFiles[];
+	directus_folders: DirectusFolders[];
+	photos: Photos[];
+};
 
 export const cms = createDirectus<Schema>(process.env.NEXT_PUBLIC_CMS_URL as string).with(rest({
 	onRequest: (options) => ({ ...options, cache: "default" })

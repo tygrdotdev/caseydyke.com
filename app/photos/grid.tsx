@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { Photo_Collection, SharedPhoto } from "@/lib/directus";
 import { MapPin } from "@/components/icons";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { Photos } from "@/lib/directus";
 
-export default function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
+export default function ImageGrid({ photos }: { photos: Photos[] }) {
     return (
         <>
             <ResponsiveMasonry
@@ -24,9 +24,9 @@ export default function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
                                         src={
                                             process.env.NEXT_PUBLIC_CMS_URL +
                                             "/assets/" +
-                                            img.image.id
+                                            img.image?.id
                                         }
-                                        alt={img.id}
+                                        alt={img.id.toString()}
                                         loading="lazy"
                                         width={1080}
                                         height={1080}
@@ -40,8 +40,7 @@ export default function ImageGrid({ photos }: { photos: SharedPhoto[] }) {
                                                     {" "}
                                                     <b>
                                                         {
-                                                            img.collections[0]
-                                                                .collections_id.name
+                                                            img.location
                                                         }
                                                     </b>
                                                 </p>

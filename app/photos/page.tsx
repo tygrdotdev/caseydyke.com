@@ -1,11 +1,11 @@
-import { Photo, Schema, cms } from "@/lib/directus";
+import { Photos, Schema, cms } from "@/lib/directus";
 import { QueryFields, readItems } from "@directus/sdk";
 import ImageGrid from "./grid";
 
 export default async function PhotosPage() {
     const photos = await cms.request(
         readItems("photos", {
-            fields: ["*.*.*"] as unknown as QueryFields<Schema, Photo>,
+            fields: ["*.*.*"] as unknown as QueryFields<Schema, Photos>,
         })
     );
 

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Photo, Schema, cms } from "@/lib/directus";
+import { Photos, Schema, cms } from "@/lib/directus";
 import Image from "next/image";
 import Link from "next/link";
 import { QueryFields, readItems } from "@directus/sdk";
@@ -59,7 +59,7 @@ function AboutMeLink({ href, content }: { href: string; content: string }) {
 export default async function Home() {
     const result = await cms.request(
         readItems("photos", {
-            fields: ["*.*.*"] as unknown as QueryFields<Schema, Photo>,
+            fields: ["*.*.*"] as unknown as QueryFields<Schema, Photos>,
         })
     );
 

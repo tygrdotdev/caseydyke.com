@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Crown, Email, Instagram, Medal } from "@/components/icons";
+import React from "react";
 
 function AwardItem({
 	href,
@@ -11,7 +12,7 @@ function AwardItem({
 }: {
 	href: string;
 	award: string;
-	awardIcon: JSX.Element;
+	awardIcon: React.JSX.Element;
 	body: string;
 }) {
 	return (

@@ -60,9 +60,9 @@ export default function GearPage() {
 						href="https://www.adobe.com/uk/products/photoshop-lightroom/mobile.html"
 					/>
 					<GearItem
-						title="iPhone 13 Pro"
-						description="I use my iPhone for quick shots when I don't have my DSLR with me. It features a 12 MP sensor, 3x optical zoom, and can shoot 4K video at 60 fps."
-						href="https://www.apple.com/iphone-13/specs/"
+						title="iPhone 16 Pro"
+						description="I use my iPhone for quick shots when I don't have my DSLR with me. It features a 48 MP sensor, 5x optical zoom, and can shoot 4K video at 120 fps."
+						href="https://www.apple.com/iphone-16-pro/"
 					/>
 				</div>
 			</div>
